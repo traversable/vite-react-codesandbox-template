@@ -1,12 +1,12 @@
-import { flow, pipe } from "fp-ts/lib/function";
-import type { Option } from "fp-ts/lib/Option";
-import * as O from  'fp-ts/lib/Option'
-import { and, or } from  'fp-ts/lib/Predicate'
-import { Refinement, compose, not } from "fp-ts/lib/Refinement";
-import * as RR from 'fp-ts/lib/ReadonlyRecord'
+import { flow, pipe } from "fp-ts/function";
+import type { Option } from "fp-ts/Option";
+import * as O from  'fp-ts/Option'
+import { and, or } from  'fp-ts/Predicate'
+import { Refinement, compose, not } from "fp-ts/Refinement";
+import * as RR from 'fp-ts/ReadonlyRecord'
 import * as t from 'io-ts'
 import * as tt from 'io-ts-types'
-import { isString } from "fp-ts/lib/string";
+import { isString } from "fp-ts/string";
 export type Scalar = string | number | boolean
 export type Nil = null | undefined
 export type Primitive = Scalar | Nil
@@ -14,7 +14,7 @@ export type Composite<A> = A[] | { [K in string]: A }
 export type Tree<A> = A | Tree<A>[]
 export type MatchAnyArray = any[]
 export type MatchAnyObject = { [K in string]: any }
-import * as E from "fp-ts/lib/Either"
+import * as E from "fp-ts/Either"
 
 
 export type Optionize<A> = { [K in keyof A]-?: Option<NonNullable<A[K]>> };
